@@ -1,10 +1,4 @@
----
 
-### File 6: `.github/workflows/ir_pipeline.yml`
-
-Adding this file inside `.github/workflows/ir_pipeline.yml` via the GitHub browser instructs GitHub's cloud servers to run your Python script automatically and commit the generated `reports/automated_triage_output.md` file directly into your repository.
-
-```yaml
 name: CSIRT Automated Triage Pipeline
 
 on:
