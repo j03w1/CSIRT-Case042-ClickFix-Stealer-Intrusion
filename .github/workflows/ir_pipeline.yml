@@ -1,0 +1,39 @@
+---
+
+### File 6: `.github/workflows/ir_pipeline.yml`
+
+Adding this file inside `.github/workflows/ir_pipeline.yml` via the GitHub browser instructs GitHub's cloud servers to run your Python script automatically and commit the generated `reports/automated_triage_output.md` file directly into your repository.
+
+```yaml
+name: CSIRT Automated Triage Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  run-incident-triage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Execute CSIRT Telemetry Triage Engine
+        run: python3 src/triage_engine.py
+
+      - name: Commit Auto-Generated Triage Report to Repository
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add reports/automated_triage_output.md
+          git diff --staged --quiet || git commit -m "chore(ir): auto-generate triage timeline and defanged IOC report"
+          git push
