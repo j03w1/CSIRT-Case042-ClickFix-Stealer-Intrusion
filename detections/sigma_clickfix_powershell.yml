@@ -1,0 +1,43 @@
+title: ClickFix Social Engineering - Explorer or Mshta Spawning Encoded PowerShell
+id: 7d4e9a21-8c3b-4f10-9e52-1a2b3c4d5e6f
+status: experimental
+description: >
+  Detects the execution chain common to "ClickFix" fake CAPTCHA/verification lures
+  where a user pastes a malicious command into the Windows Run dialog (explorer.exe),
+  invoking mshta.exe or powershell.exe with hidden window flags and Base64 encoded commands.
+references:
+  - https://attack.mitre.org/techniques/T1204/004/
+  - https://attack.mitre.org/techniques/T1218/005/
+  - https://attack.mitre.org/techniques/T1059/001/
+author: CSIRT Portfolio Analyst (Case 042)
+date: 2026-10-16
+tags:
+  - attack.execution
+  - attack.t1204.004
+  - attack.t1059.001
+  - attack.defense-evasion
+  - attack.t1218.005
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '\explorer.exe'
+      - '\mshta.exe'
+  selection_child:
+    Image|endswith:
+      - '\mshta.exe'
+      - '\powershell.exe'
+      - '\pwsh.exe'
+  selection_cli_obfuscation:
+    CommandLine|contains:
+      - '-EncodedCommand'
+      - ' -enc '
+      - 'vbscript:Execute'
+      - '-W Hidden'
+      - 'DownloadString'
+  condition: selection_parent and selection_child and selection_cli_obfuscation
+falsepositives:
+  - Rare legacy administrative scripts launched directly via Run dialog
+level: high
