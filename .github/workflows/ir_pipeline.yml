@@ -1,4 +1,3 @@
-
 name: CSIRT Automated Triage Pipeline
 
 on:
@@ -9,17 +8,31 @@ on:
 permissions:
   contents: write
 
+env:
+  # Enforce Node.js 24 runtime for all JavaScript-based GitHub Actions
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   run-incident-triage:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - name: Checkout Repository (Node 24 Native)
+        uses: actions/checkout@v7
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v5
+      - name: Set up Node.js 24 Runtime
+        uses: actions/setup-node@v5
         with:
-          python-version: "3.11"
+          node-version: "24"
+
+      - name: Set up Python (Node 24 Native)
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Verify Node.js 24 & Python Runtimes
+        run: |
+          node --version
+          python3 --version
 
       - name: Execute CSIRT Telemetry Triage Engine
         run: python3 src/triage_engine.py
@@ -29,5 +42,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add reports/automated_triage_output.md
-          git diff --staged --quiet || git commit -m "chore(ir): auto-generate triage timeline and defanged IOC report"
+          git diff --staged --quiet || git commit -m "chore(ir): auto-generate triage timeline and defanged IOC report [skip ci]"
           git push
